@@ -439,11 +439,17 @@ let businessCode =
 
     };
 
+let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
 
-    localStorage.setItem(
-        "business",
-        JSON.stringify(business)
-    );
+
+businesses.push(business);
+
+
+localStorage.setItem(
+    "businesses",
+    JSON.stringify(businesses)
+);
 
 
     document.getElementById("saveMessage").innerHTML =
