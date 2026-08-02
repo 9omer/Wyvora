@@ -128,7 +128,8 @@ function addProduct() {
     product.innerHTML = 
     name + 
     "<br>₺" + price +
-    "<br><button onclick='this.parentElement.remove()'>Sil</button>";
+    "<br><button onclick='editProduct(this)'>Düzenle</button>" +
+"<button onclick='this.parentElement.remove()'>Sil</button>";
 
 
     menuList.appendChild(product);
@@ -139,5 +140,25 @@ function addProduct() {
 
     document.getElementById("productPrice").value = "";
 
+
+}
+function editProduct(button) {
+
+    let product = button.parentElement;
+
+    let newName = prompt("Yeni ürün adı:");
+
+    let newPrice = prompt("Yeni fiyat:");
+
+    if(newName && newPrice){
+
+        product.innerHTML =
+        newName +
+        "<br>₺" +
+        newPrice +
+        "<br><button onclick='editProduct(this)'>Düzenle</button>" +
+        "<button onclick='this.parentElement.remove()'>Sil</button>";
+
+    }
 
 }
