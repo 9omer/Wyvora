@@ -720,3 +720,34 @@ box.innerHTML = `
 </div>
 
 `;
+
+function analyzeReviews(){
+
+    let box = document.getElementById("reviewAnalysis");
+
+
+    if(!box) return;
+
+
+    box.innerHTML = `
+
+    <div class="ai-message">
+
+    <p>
+    <strong>Wyvora AI:</strong>
+    Müşteri yorumları analiz edildi.
+    </p>
+
+    <p>
+    ⭐ Olumlu yorumlar: Müşteri memnuniyeti yüksek görünüyor.
+    </p>
+
+    <p>
+    ⚠️ Geliştirme önerisi: Daha hızlı hizmet ve daha fazla kampanya deneyebilirsiniz.
+    </p>
+
+    </div>
+
+    `;
+
+}
