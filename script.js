@@ -933,6 +933,12 @@ let logo = document.getElementById("storeLogo");
         description.innerHTML = business.description || "";
 
     }
+    
+if(logo){
+
+    logo.src = business.logo || "";
+
+}
 
 }
 function loadStoreGallery(){
