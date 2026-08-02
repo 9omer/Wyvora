@@ -797,6 +797,31 @@ function generateAIResponse(message){
     let business =
     JSON.parse(localStorage.getItem("business")) || [];
 
+if(message.includes("kaç ürün")){
+
+    return "Menünüzde şu anda " + products.length + " ürün bulunuyor.";
+
+}
+
+
+if(message.includes("rezervasyon")){
+
+    return "Şu anda " + reservations.length + " rezervasyon kaydı bulunuyor.";
+
+}
+
+
+if(message.includes("işletme")){
+
+    if(business.name){
+
+        return "İşletme adı: " + business.name + ". Size işletme yönetimi konusunda yardımcı olabilirim.";
+
+    }
+
+    return "Henüz işletme bilgisi eklenmemiş.";
+
+}
     if(message.includes("menü")){
 
         return "Menünüzü analiz ediyorum. Ürün çeşitliliği ve fiyatlandırma konusunda öneriler hazırlayabilirim.";
