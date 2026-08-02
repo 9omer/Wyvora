@@ -798,7 +798,7 @@ function generateAIResponse(message){
 
 
     let business =
-    JSON.parse(localStorage.getItem("business")) || [];
+    JSON.parse(localStorage.getItem("business")) || {};
 
 if(message.includes("kaç ürün") || message.includes("ürün sayısı") || message.includes("menümde kaç") ){
 
