@@ -813,6 +813,11 @@ if(message.includes("rezervasyon") || message.includes("kaç rezervasyon") || me
 
 }
 
+if(message.includes("saat") || message.includes("açık") || message.includes("çalışma")){
+
+    return "Çalışma saatleriniz: " + business.hours;
+
+}
 
 if(message.includes("işletme") || message.includes("firma") || message.includes("dükkan") || message.includes("mekan")){
 
