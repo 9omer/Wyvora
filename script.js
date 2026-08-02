@@ -822,7 +822,13 @@ if(message.includes("işletme") || message.includes("firma") || message.includes
     return "Henüz işletme bilgisi eklenmemiş.";
 
 }
-    if(message.includes("menü")){
+    if(message.includes("bugün") || message.includes("durum") || message.includes("özet")){
+
+    return "İşletme özeti: Menünüzde " + products.length + 
+    " ürün, toplam " + reservations.length + 
+    " rezervasyon kaydı bulunuyor. İşletmenizi geliştirmek için yeni kampanyalar ve müşteri analizleri yapabilirsiniz.";
+
+}
 
         return "Menünüzü analiz ediyorum. Ürün çeşitliliği ve fiyatlandırma konusunda öneriler hazırlayabilirim.";
 
