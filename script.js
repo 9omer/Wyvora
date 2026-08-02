@@ -629,11 +629,42 @@ function generateAIRecommendations(){
 
     if(!box) return;
 
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
 
-    box.innerHTML = `
-    <div class="ai-message">
-        <p>Wyvora AI: İşletmenizi analiz ediyorum.</p>
-    </div>
-    `;
+let reservations =
+JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+let message = "";
+
+
+if(products.length < 5){
+
+    message = "Menünüze daha fazla ürün ekleyerek müşterilerinize daha fazla seçenek sunabilirsiniz.";
 
 }
+else if(reservations.length > 10){
+
+    message = "Rezervasyonlarınız yoğun. Kampanya oluşturarak müşteri sayınızı artırabilirsiniz.";
+
+}
+else{
+
+    message = "İşletmeniz iyi ilerliyor. Yeni kampanya ve ürün analizleri yapabilirsiniz.";
+
+}
+
+
+
+box.innerHTML = `
+
+<div class="ai-message">
+
+<p>
+<strong>Wyvora AI:</strong> ${message}
+</p>
+
+</div>
+
+`;
