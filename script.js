@@ -919,7 +919,7 @@ function loadStore(){
 
     let name = document.getElementById("storeName");
     let description = document.getElementById("storeDescription");
-
+let logo = document.getElementById("storeLogo");
 
     if(name){
 
