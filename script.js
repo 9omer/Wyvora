@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 generateAIRecommendations();
 loadStore();
 loadStoreMenu();
+loadStoreGallery();
 function loadStoreMenu(){
 
     let menu =
