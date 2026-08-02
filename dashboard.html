@@ -74,8 +74,8 @@ Wyvora AI işletmenizi analiz ediyor.
 
 <h3>📅 Rezervasyon</h3>
 
-<h2>
-18
+<h2 id="reservationCount">
+0
 </h2>
 
 </div>
@@ -86,8 +86,8 @@ Wyvora AI işletmenizi analiz ediyor.
 
 <h3>🤖 AI Önerileri</h3>
 
-<h2>
-7
+<h2 id="aiCount">
+3
 </h2>
 
 </div>
@@ -138,6 +138,10 @@ if(localStorage.getItem("loggedIn") !== "true"){
 
 
 <script>
+<script src="script.js"></script>
+
+
+<script>
 
 let products =
 JSON.parse(localStorage.getItem("products")) || [];
@@ -145,6 +149,17 @@ JSON.parse(localStorage.getItem("products")) || [];
 
 document.getElementById("productCount").innerHTML =
 products.length;
+
+
+</script>
+<script>
+
+let reservations =
+JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+document.getElementById("reservationCount").innerHTML =
+reservations.length;
 
 
 </script>
