@@ -276,3 +276,10 @@ function login(){
 
 
 }
+function logout(){
+
+    localStorage.removeItem("loggedIn");
+
+    window.location.href="admin.html";
+
+}
