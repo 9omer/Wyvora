@@ -786,6 +786,17 @@ function analyzeReviews(){
 }
 function generateAIResponse(message){
 
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+    let reservations =
+    JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+    let business =
+    JSON.parse(localStorage.getItem("business")) || [];
+
     if(message.includes("menü")){
 
         return "Menünüzü analiz ediyorum. Ürün çeşitliliği ve fiyatlandırma konusunda öneriler hazırlayabilirim.";
