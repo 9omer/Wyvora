@@ -237,3 +237,42 @@ function deleteProduct(index){
     loadProducts();
 
 }
+function login(){
+
+    let username = document.getElementById("username").value;
+
+    let password = document.getElementById("password").value;
+
+    let message = document.getElementById("loginMessage");
+
+
+    if(username === "admin" && password === "123456"){
+
+
+        localStorage.setItem("loggedIn","true");
+
+
+        message.innerHTML =
+        "Giriş başarılı. Dashboard açılıyor...";
+
+
+        setTimeout(function(){
+
+            window.location.href="dashboard.html";
+
+        },1000);
+
+
+    }
+
+    else{
+
+
+        message.innerHTML =
+        "Kullanıcı adı veya şifre yanlış.";
+
+
+    }
+
+
+}
