@@ -934,3 +934,34 @@ function loadStore(){
     }
 
 }
+function loadStoreGallery(){
+
+    let gallery =
+    document.getElementById("storeGallery");
+
+
+    if(!gallery) return;
+
+
+    let photos =
+    JSON.parse(localStorage.getItem("photos")) || [];
+
+
+    gallery.innerHTML = "";
+
+
+    photos.forEach(function(photo){
+
+        gallery.innerHTML += `
+
+        <div class="ai-message">
+
+        <img src="${photo}" width="200">
+
+        </div>
+
+        `;
+
+    });
+
+}
