@@ -283,3 +283,61 @@ function logout(){
     window.location.href="admin.html";
 
 }
+function saveBusiness(){
+
+    let business = {
+
+        name: document.getElementById("businessName").value,
+
+        phone: document.getElementById("phone").value,
+
+        address: document.getElementById("address").value,
+
+        hours: document.getElementById("hours").value,
+
+        description: document.getElementById("description").value
+
+    };
+
+
+    localStorage.setItem(
+        "business",
+        JSON.stringify(business)
+    );
+
+
+    document.getElementById("saveMessage").innerHTML =
+    "İşletme bilgileri kaydedildi.";
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+
+    let data = JSON.parse(localStorage.getItem("business"));
+
+
+    if(data){
+
+
+        if(document.getElementById("businessName")){
+
+            document.getElementById("businessName").value = data.name;
+
+            document.getElementById("phone").value = data.phone;
+
+            document.getElementById("address").value = data.address;
+
+            document.getElementById("hours").value = data.hours;
+
+            document.getElementById("description").value = data.description;
+
+        }
+
+
+    }
+
+
+});
