@@ -453,6 +453,8 @@ let qrLink = document.getElementById("qrLink");
 if(qrLink){
 
     qrLink.innerHTML = window.location.origin + "/store.html";
+    
+    }
 let qrImage = document.getElementById("qrImage");
 
 if(qrImage){
@@ -463,7 +465,13 @@ if(qrImage){
 
 
 }
+let codeBox = document.getElementById("businessCode");
 
+if(codeBox){
+
+    codeBox.innerHTML = "İşletme Kodunuz: " + businessCode;
+
+}
 
 
 document.addEventListener("DOMContentLoaded", function(){
