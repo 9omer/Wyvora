@@ -918,6 +918,7 @@ function loadStore(){
     JSON.parse(localStorage.getItem("business")) || {};
 
     let name = document.getElementById("storeName");
+    let title = document.getElementById("pageTitle");
     let description = document.getElementById("storeDescription");
 let logo = document.getElementById("storeLogo");
 
