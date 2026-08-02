@@ -91,10 +91,27 @@ function aiCommand(command) {
 
     else if(command === "Ürün açıklaması yaz"){
 
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+    if(products.length === 0){
+
         message =
-        "Ürünlerinizi daha çekici anlatmak için lezzet, içerik ve özel özelliklerini vurgulayın.";
+        "Önce menünüze ürün ekleyin. Daha sonra ürün açıklamaları oluşturabilirim.";
 
     }
+    else{
+
+        let productName = products[0].name;
+
+
+        message =
+        productName + " için açıklama önerisi: Özel tarifimiz, kaliteli malzemelerimiz ve eşsiz lezzetiyle misafirlerimize unutulmaz bir deneyim sunar.";
+
+    }
+
+}
 
 
     else if(command === "Google yorumlarını analiz et"){
