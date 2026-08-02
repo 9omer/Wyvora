@@ -489,10 +489,14 @@ if(codeBox){
 document.addEventListener("DOMContentLoaded", function(){
 
 
-    let data = JSON.parse(localStorage.getItem("businesses"));
+    let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
 
 
-    if(data){
+let data = businesses[0];
+
+
+if(data){
 
 
         if(document.getElementById("businessName")){
