@@ -419,10 +419,12 @@ function logout(){
 
 }
 function saveBusiness(){
-
-    let business = {
-        let businessCode = 
+let businessCode = 
 "wyvora-" + Date.now();
+    let business = {
+        
+        code: businessCode,
+        
         logo: document.getElementById("logo").value,
 
         name: document.getElementById("businessName").value,
