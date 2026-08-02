@@ -483,7 +483,7 @@ if(codeBox){
 document.addEventListener("DOMContentLoaded", function(){
 
 
-    let data = JSON.parse(localStorage.getItem("business"));
+    let data = JSON.parse(localStorage.getItem("businesses"));
 
 
     if(data){
