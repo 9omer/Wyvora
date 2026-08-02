@@ -2,28 +2,101 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Wyvora başlatıldı.");
 
+});
+
+
+// Kullanıcının yazdığı mesajı işler
 function aiMessage() {
 
-    let message = document.getElementById("aiInput").value;
-
+    let input = document.getElementById("aiInput");
     let response = document.getElementById("aiResponse");
+
+    let message = input.value.toLowerCase();
+
 
     if (message === "") {
 
-        response.innerHTML = "<p><strong>Wyvora AI:</strong> Lütfen bir soru yazın.</p>";
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Lütfen bir soru yazın.</p>";
 
-    } else {
-
-        response.innerHTML = "<p><strong>Wyvora AI:</strong> Sorunuz alındı. Size yardımcı olmak için hazırlanıyorum.</p>";
+        return;
 
     }
 
+
+    if (message.includes("kampanya")) {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> İşletmeniz için hafta sonu %15 indirim kampanyası öneriyorum.</p>";
+
+    }
+
+    else if (message.includes("menü")) {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> En çok satan ürünlerinizi öne çıkararak menünüzü optimize edebilirsiniz.</p>";
+
+    }
+
+    else if (message.includes("yorum")) {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Müşteri yorumlarınızı analiz ederek memnuniyet oranınızı artırabilirsiniz.</p>";
+
+    }
+
+    else {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Sorunuzu analiz ediyorum. İşletmenizi geliştirmek için öneriler hazırlıyorum.</p>";
+
+    }
+
+
+    input.value = "";
+
 }
+
+
+
+// Hazır AI komutları
+
 function aiCommand(command) {
+
 
     let response = document.getElementById("aiResponse");
 
-    response.innerHTML = 
-    "<p><strong>Wyvora AI:</strong> " + command + " isteğiniz alındı. Analiz hazırlanıyor.</p>";
+
+    if (command === "Menümü analiz et") {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Menü analizi tamamlandı. En çok satan ürünlerinizi öne çıkarmanızı öneriyorum.</p>";
+
+    }
+
+
+    else if (command === "Kampanya oluştur") {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Yeni kampanya önerisi: Hafta içi kahve yanında tatlı indirimi.</p>";
+
+    }
+
+
+    else if (command === "Ürün açıklaması yaz") {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Ürünlerinizi daha çekici açıklamalarla müşterilere sunabilirsiniz.</p>";
+
+    }
+
+
+    else if (command === "Google yorumlarını analiz et") {
+
+        response.innerHTML =
+        "<p><strong>Wyvora AI:</strong> Yorum analizi için müşteri geri bildirimleri inceleniyor.</p>";
+
+    }
+
 
 }
