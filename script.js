@@ -784,3 +784,36 @@ function analyzeReviews(){
     `;
 
 }
+function generateAIResponse(message){
+
+    if(message.includes("menü")){
+
+        return "Menünüzü analiz ediyorum. Ürün çeşitliliği ve fiyatlandırma konusunda öneriler hazırlayabilirim.";
+
+    }
+
+
+    if(message.includes("kampanya")){
+
+        return "İşletmeniz için müşteri çekmeye yönelik kampanya fikirleri oluşturabilirim.";
+
+    }
+
+
+    if(message.includes("ürün")){
+
+        return "Ürünleriniz için daha etkili açıklamalar ve tanıtım fikirleri hazırlayabilirim.";
+
+    }
+
+
+    if(message.includes("yorum")){
+
+        return "Müşteri yorumlarını analiz ederek geliştirme önerileri sunabilirim.";
+
+    }
+
+
+    return "Sorunuzu analiz ediyorum. İşletmeniz için uygun öneriler hazırlayabilirim.";
+
+}
