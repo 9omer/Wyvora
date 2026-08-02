@@ -818,8 +818,8 @@ if(message.includes("işletme") || message.includes("firma") || message.includes
 
     if(business.name){
 
-        return business.name + " işletmesi için analiz yapabilirim. Menü, rezervasyon, müşteri deneyimi ve kampanya konularında size yardımcı olabilirim.";
-
+        return business.name + " işletmesi için analiz yapabilirim. Açıklama: " + business.description + ". Menü, rezervasyon, müşteri deneyimi ve kampanya konularında size yardımcı olabilirim.";
+        
     }
 
     return "Henüz işletme bilgisi eklenmemiş.";
