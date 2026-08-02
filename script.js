@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadProducts();
 
+    loadPhotos();
+
 });
 
 
@@ -341,3 +343,107 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 });
+function addPhoto(){
+
+    let url = document.getElementById("photoUrl").value;
+
+
+    if(url === ""){
+
+        alert("Fotoğraf linki girin.");
+
+        return;
+
+    }
+
+
+    let photos =
+    JSON.parse(localStorage.getItem("photos")) || [];
+
+
+    photos.push(url);
+
+
+    localStorage.setItem(
+        "photos",
+        JSON.stringify(photos)
+    );
+
+
+    loadPhotos();
+
+
+    document.getElementById("photoUrl").value="";
+
+}
+
+
+
+function loadPhotos(){
+
+    let gallery =
+    document.getElementById("galleryList");
+
+
+    if(!gallery) return;
+
+
+    gallery.innerHTML="";
+
+
+    let photos =
+    JSON.parse(localStorage.getItem("photos")) || [];
+
+
+
+    photos.forEach(function(photo,index){
+
+
+        let div=document.createElement("div");
+
+
+        div.className="ai-message";
+
+
+        div.innerHTML = `
+
+        <img src="${photo}" width="200">
+
+        <br>
+
+        <button onclick="deletePhoto(${index})">
+        Sil
+        </button>
+
+        `;
+
+
+        gallery.appendChild(div);
+
+
+    });
+
+
+}
+
+
+
+function deletePhoto(index){
+
+
+    let photos =
+    JSON.parse(localStorage.getItem("photos")) || [];
+
+
+    photos.splice(index,1);
+
+
+    localStorage.setItem(
+        "photos",
+        JSON.stringify(photos)
+    );
+
+
+    loadPhotos();
+
+}
