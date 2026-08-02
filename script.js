@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadPhotos();
 
+    loadReservations();
+
 });
 
 
@@ -497,5 +499,126 @@ function deletePhoto(index){
 
 
     loadPhotos();
+
+}
+function addReservation(){
+
+    let name = document.getElementById("customerName").value;
+
+    let date = document.getElementById("customerDate").value;
+
+    let count = document.getElementById("customerCount").value;
+
+
+    if(name === "" || date === "" || count === ""){
+
+        alert("Tüm bilgileri doldurun.");
+
+        return;
+
+    }
+
+
+    let reservations =
+    JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+    reservations.push({
+
+        name:name,
+
+        date:date,
+
+        count:count
+
+    });
+
+
+    localStorage.setItem(
+        "reservations",
+        JSON.stringify(reservations)
+    );
+
+
+    loadReservations();
+
+
+    document.getElementById("customerName").value="";
+
+    document.getElementById("customerDate").value="";
+
+    document.getElementById("customerCount").value="";
+
+}
+
+
+
+function loadReservations(){
+
+    let list =
+    document.getElementById("reservationList");
+
+
+    if(!list) return;
+
+
+    list.innerHTML="";
+
+
+    let reservations =
+    JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+    reservations.forEach(function(reservation,index){
+
+
+        let div=document.createElement("div");
+
+
+        div.className="ai-message";
+
+
+        div.innerHTML = `
+
+        <h3>${reservation.name}</h3>
+
+        <p>Tarih: ${reservation.date}</p>
+
+        <p>Kişi: ${reservation.count}</p>
+
+
+        <button onclick="deleteReservation(${index})">
+        Sil
+        </button>
+
+        `;
+
+
+        list.appendChild(div);
+
+
+    });
+
+
+}
+
+
+
+function deleteReservation(index){
+
+    let reservations =
+    JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+    reservations.splice(index,1);
+
+
+    localStorage.setItem(
+        "reservations",
+        JSON.stringify(reservations)
+    );
+
+
+    loadReservations();
 
 }
