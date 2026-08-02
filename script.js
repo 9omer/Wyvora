@@ -43,11 +43,63 @@ function aiMessage() {
 
 
 
-function aiCommand(command){
+function aiCommand(command) {
 
     let response = document.getElementById("aiResponse");
 
+
     if(!response) return;
+
+
+    let message = "";
+
+
+    if(command === "Menümü analiz et"){
+
+        let products =
+        JSON.parse(localStorage.getItem("products")) || [];
+
+
+        message =
+        "Menünüzde " + products.length + 
+        " ürün bulunuyor. Ürün çeşitliliğinizi artırmayı düşünebilirsiniz.";
+
+    }
+
+
+    else if(command === "Kampanya oluştur"){
+
+        message =
+        "Müşterileri çekmek için özel indirim veya hafta sonu kampanyası oluşturabilirsiniz.";
+
+    }
+
+
+    else if(command === "Ürün açıklaması yaz"){
+
+        message =
+        "Ürünlerinizi daha çekici anlatmak için lezzet, içerik ve özel özelliklerini vurgulayın.";
+
+    }
+
+
+    else if(command === "Google yorumlarını analiz et"){
+
+        message =
+        "Google yorumlarını inceleyerek müşteri memnuniyeti ve geliştirme alanlarını bulabilirsiniz.";
+
+    }
+
+
+    response.innerHTML = `
+
+    <p>
+    <strong>Wyvora AI:</strong> ${message}
+    </p>
+
+    `;
+
+}
 
 
     response.innerHTML =
