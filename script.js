@@ -818,7 +818,7 @@ if(message.includes("işletme") || message.includes("firma") || message.includes
 
     if(business.name){
 
-        return "İşletme adı: " + business.name + ". Size işletme yönetimi konusunda yardımcı olabilirim.";
+        return business.name + " işletmesi için analiz yapabilirim. Menü, rezervasyon, müşteri deneyimi ve kampanya konularında size yardımcı olabilirim.";
 
     }
 
