@@ -447,3 +447,55 @@ function deletePhoto(index){
     loadPhotos();
 
 }
+function addPhoto(){
+
+    let url = document.getElementById("photoUrl").value;
+
+
+    if(url === ""){
+
+        alert("Fotoğraf linki girin.");
+
+        return;
+
+    }
+
+
+    let photos = JSON.parse(localStorage.getItem("photos")) || [];
+
+
+    photos.push(url);
+
+
+    localStorage.setItem(
+        "photos",
+        JSON.stringify(photos)
+    );
+
+
+    loadPhotos();
+
+
+    document.getElementById("photoUrl").value = "";
+
+}
+
+
+
+function deletePhoto(index){
+
+    let photos = JSON.parse(localStorage.getItem("photos")) || [];
+
+
+    photos.splice(index,1);
+
+
+    localStorage.setItem(
+        "photos",
+        JSON.stringify(photos)
+    );
+
+
+    loadPhotos();
+
+}
