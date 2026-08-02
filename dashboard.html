@@ -171,7 +171,17 @@ reservations.length;
 
 </script>
 
+<script>
 
+let photos =
+JSON.parse(localStorage.getItem("photos")) || [];
+
+
+document.getElementById("photoCount").innerHTML =
+photos.length;
+
+
+</script>
 
 </body>
 
