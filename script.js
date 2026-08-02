@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadReservations();
 generateAIRecommendations();
 loadStore();
+loadStoreMenu();
 function loadStoreMenu(){
 
     let menu =
