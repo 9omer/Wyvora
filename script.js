@@ -811,7 +811,7 @@ if(message.includes("rezervasyon") || message.includes("kaç rezervasyon") || me
 }
 
 
-if(message.includes("işletme")){
+if(message.includes("işletme") || message.includes("firma") || message.includes("dükkan") || message.includes("mekan")){
 
     if(business.name){
 
