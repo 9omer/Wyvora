@@ -867,3 +867,26 @@ if(message.includes("işletme") || message.includes("firma") || message.includes
     return "Sorunuzu analiz ediyorum. İşletmeniz için uygun öneriler hazırlayabilirim.";
 
 }
+function loadStore(){
+
+    let business =
+    JSON.parse(localStorage.getItem("business")) || {};
+
+    let name = document.getElementById("storeName");
+    let description = document.getElementById("storeDescription");
+
+
+    if(name){
+
+        name.innerHTML = business.name || "İşletme Adı";
+
+    }
+
+
+    if(description){
+
+        description.innerHTML = business.description || "";
+
+    }
+
+}
