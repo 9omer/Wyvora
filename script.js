@@ -414,6 +414,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
         if(document.getElementById("businessName")){
+            
+            document.getElementById("logo").value = data.logo || "";
 
             document.getElementById("businessName").value = data.name;
 
