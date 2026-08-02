@@ -804,7 +804,7 @@ if(message.includes("kaç ürün") || message.includes("ürün sayısı") || mes
 }
 
 
-if(message.includes("rezervasyon")){
+if(message.includes("rezervasyon") || message.includes("kaç rezervasyon") || message.includes("rezervasyon sayısı")){
 
     return "Şu anda " + reservations.length + " rezervasyon kaydı bulunuyor.";
 
