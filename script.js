@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// AI mesaj sistemi
 
 function aiMessage() {
 
     let input = document.getElementById("aiInput");
     let response = document.getElementById("aiResponse");
+
+    if(!input || !response) return;
+
 
     let message = input.value.toLowerCase();
 
@@ -22,7 +26,6 @@ function aiMessage() {
         "<p><strong>Wyvora AI:</strong> Lütfen bir soru yazın.</p>";
 
         return;
-
     }
 
 
@@ -39,13 +42,17 @@ function aiCommand(command){
 
     let response = document.getElementById("aiResponse");
 
+    if(!response) return;
+
+
     response.innerHTML =
-    "<p><strong>Wyvora AI:</strong> " + command + " işlemi hazırlanıyor.</p>";
+    "<p><strong>Wyvora AI:</strong> " + command + " hazırlanıyor.</p>";
 
 }
 
 
 
+// Ürün ekleme
 
 function addProduct(){
 
@@ -53,29 +60,40 @@ function addProduct(){
 
     let price = document.getElementById("productPrice").value;
 
+    let image = document.getElementById("productImage").value;
+
+
 
     if(name === "" || price === ""){
 
-        alert("Bilgileri doldurun.");
+        alert("Ürün adı ve fiyat girin.");
 
         return;
 
     }
 
 
+
     let products = JSON.parse(localStorage.getItem("products")) || [];
+
 
 
     products.push({
 
         name:name,
 
-        price:price
+        price:price,
+
+        image:image
 
     });
 
 
-    localStorage.setItem("products", JSON.stringify(products));
+
+    localStorage.setItem(
+        "products",
+        JSON.stringify(products)
+    );
 
 
     loadProducts();
@@ -85,10 +103,13 @@ function addProduct(){
 
     document.getElementById("productPrice").value="";
 
+    document.getElementById("productImage").value="";
+
 }
 
 
 
+// Ürünleri gösterme
 
 function loadProducts(){
 
@@ -101,27 +122,44 @@ function loadProducts(){
     menuList.innerHTML="";
 
 
-    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
 
 
-    products.forEach(function(product){
+
+    products.forEach(function(product,index){
 
 
-        let div = document.createElement("div");
+        let div=document.createElement("div");
 
 
         div.className="ai-message";
 
 
-        div.innerHTML =
 
-        product.name +
+        div.innerHTML = `
 
-        "<br>₺" +
+        ${product.image ? 
+        "<img src='"+product.image+"' width='150'>" 
+        : ""}
 
-        product.price +
 
-        "<br><button onclick='deleteProduct(\""+product.name+"\")'>Sil</button>";
+        <h3>${product.name}</h3>
+
+        <p>₺${product.price}</p>
+
+
+        <button onclick="editProduct(${index})">
+        Düzenle
+        </button>
+
+
+        <button onclick="deleteProduct(${index})">
+        Sil
+        </button>
+
+        `;
 
 
         menuList.appendChild(div);
@@ -134,19 +172,66 @@ function loadProducts(){
 
 
 
-function deleteProduct(name){
+// Ürün düzenleme
 
-    let products = JSON.parse(localStorage.getItem("products")) || [];
-
-
-    products = products.filter(function(product){
-
-        return product.name !== name;
-
-    });
+function editProduct(index){
 
 
-    localStorage.setItem("products", JSON.stringify(products));
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+    let newName =
+    prompt("Yeni ürün adı:", products[index].name);
+
+
+
+    let newPrice =
+    prompt("Yeni fiyat:", products[index].price);
+
+
+
+    if(newName && newPrice){
+
+
+        products[index].name=newName;
+
+        products[index].price=newPrice;
+
+
+        localStorage.setItem(
+            "products",
+            JSON.stringify(products)
+        );
+
+
+        loadProducts();
+
+    }
+
+}
+
+
+
+// Ürün silme
+
+function deleteProduct(index){
+
+
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+
+    products.splice(index,1);
+
+
+
+    localStorage.setItem(
+        "products",
+        JSON.stringify(products)
+    );
 
 
     loadProducts();
