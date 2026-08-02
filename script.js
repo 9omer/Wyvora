@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Wyvora başlatıldı.");
 
+    loadProducts();
+
 });
 
 
-// Kullanıcının yazdığı mesajı işler
+
 function aiMessage() {
 
     let input = document.getElementById("aiInput");
@@ -14,7 +16,7 @@ function aiMessage() {
     let message = input.value.toLowerCase();
 
 
-    if (message === "") {
+    if(message === ""){
 
         response.innerHTML =
         "<p><strong>Wyvora AI:</strong> Lütfen bir soru yazın.</p>";
@@ -24,34 +26,8 @@ function aiMessage() {
     }
 
 
-    if (message.includes("kampanya")) {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> İşletmeniz için hafta sonu %15 indirim kampanyası öneriyorum.</p>";
-
-    }
-
-    else if (message.includes("menü")) {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> En çok satan ürünlerinizi öne çıkararak menünüzü optimize edebilirsiniz.</p>";
-
-    }
-
-    else if (message.includes("yorum")) {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> Müşteri yorumlarınızı analiz ederek memnuniyet oranınızı artırabilirsiniz.</p>";
-
-    }
-
-    else {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> Sorunuzu analiz ediyorum. İşletmenizi geliştirmek için öneriler hazırlıyorum.</p>";
-
-    }
-
+    response.innerHTML =
+    "<p><strong>Wyvora AI:</strong> İşletmeniz için analiz hazırlanıyor.</p>";
 
     input.value = "";
 
@@ -59,106 +35,120 @@ function aiMessage() {
 
 
 
-// Hazır AI komutları
-
-function aiCommand(command) {
-
+function aiCommand(command){
 
     let response = document.getElementById("aiResponse");
 
-
-    if (command === "Menümü analiz et") {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> Menü analizi tamamlandı. En çok satan ürünlerinizi öne çıkarmanızı öneriyorum.</p>";
-
-    }
-
-
-    else if (command === "Kampanya oluştur") {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> Yeni kampanya önerisi: Hafta içi kahve yanında tatlı indirimi.</p>";
-
-    }
-
-
-    else if (command === "Ürün açıklaması yaz") {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> Ürünlerinizi daha çekici açıklamalarla müşterilere sunabilirsiniz.</p>";
-
-    }
-
-
-    else if (command === "Google yorumlarını analiz et") {
-
-        response.innerHTML =
-        "<p><strong>Wyvora AI:</strong> Yorum analizi için müşteri geri bildirimleri inceleniyor.</p>";
-
-    }
-
+    response.innerHTML =
+    "<p><strong>Wyvora AI:</strong> " + command + " işlemi hazırlanıyor.</p>";
 
 }
-function addProduct() {
+
+
+
+
+function addProduct(){
 
     let name = document.getElementById("productName").value;
 
     let price = document.getElementById("productPrice").value;
 
 
-    if (name === "" || price === "") {
+    if(name === "" || price === ""){
 
-        alert("Lütfen ürün adı ve fiyat girin.");
+        alert("Bilgileri doldurun.");
 
         return;
 
     }
 
 
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+
+
+    products.push({
+
+        name:name,
+
+        price:price
+
+    });
+
+
+    localStorage.setItem("products", JSON.stringify(products));
+
+
+    loadProducts();
+
+
+    document.getElementById("productName").value="";
+
+    document.getElementById("productPrice").value="";
+
+}
+
+
+
+
+function loadProducts(){
+
     let menuList = document.getElementById("menuList");
 
 
-    let product = document.createElement("div");
+    if(!menuList) return;
 
 
-    product.className = "ai-message";
+    menuList.innerHTML="";
 
 
-    product.innerHTML = 
-    name + 
-    "<br>₺" + price +
-    "<br><button onclick='editProduct(this)'>Düzenle</button>" +
-"<button onclick='this.parentElement.remove()'>Sil</button>";
+    let products = JSON.parse(localStorage.getItem("products")) || [];
 
 
-    menuList.appendChild(product);
+    products.forEach(function(product){
 
 
+        let div = document.createElement("div");
 
-    document.getElementById("productName").value = "";
 
-    document.getElementById("productPrice").value = "";
+        div.className="ai-message";
+
+
+        div.innerHTML =
+
+        product.name +
+
+        "<br>₺" +
+
+        product.price +
+
+        "<br><button onclick='deleteProduct(\""+product.name+"\")'>Sil</button>";
+
+
+        menuList.appendChild(div);
+
+
+    });
 
 
 }
-function editProduct(button) {
 
-    let product = button.parentElement;
 
-    let newName = prompt("Yeni ürün adı:");
 
-    let newPrice = prompt("Yeni fiyat:");
+function deleteProduct(name){
 
-    if(newName && newPrice){
+    let products = JSON.parse(localStorage.getItem("products")) || [];
 
-        product.innerHTML =
-        newName +
-        "<br>₺" +
-        newPrice +
-        "<br><button onclick='editProduct(this)'>Düzenle</button>" +
-        "<button onclick='this.parentElement.remove()'>Sil</button>";
 
-    }
+    products = products.filter(function(product){
+
+        return product.name !== name;
+
+    });
+
+
+    localStorage.setItem("products", JSON.stringify(products));
+
+
+    loadProducts();
 
 }
