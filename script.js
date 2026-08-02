@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     loadPhotos();
 
     loadReservations();
+generateAIRecommendations();
 
 });
 
@@ -620,5 +621,19 @@ function deleteReservation(index){
 
 
     loadReservations();
+
+}
+function generateAIRecommendations(){
+
+    let box = document.getElementById("aiSuggestions");
+
+    if(!box) return;
+
+
+    box.innerHTML = `
+    <div class="ai-message">
+        <p>Wyvora AI: İşletmenizi analiz ediyorum.</p>
+    </div>
+    `;
 
 }
