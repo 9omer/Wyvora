@@ -69,10 +69,24 @@ function aiCommand(command) {
 
     else if(command === "Kampanya oluştur"){
 
+    let reservations =
+    JSON.parse(localStorage.getItem("reservations")) || [];
+
+
+    if(reservations.length > 10){
+
         message =
-        "Müşterileri çekmek için özel indirim veya hafta sonu kampanyası oluşturabilirsiniz.";
+        "Rezervasyonlarınız yoğun. Hafta içi özel indirim kampanyası oluşturabilirsiniz.";
 
     }
+    else{
+
+        message =
+        "Müşteri çekmek için yeni ürün tanıtımı veya özel kampanya oluşturabilirsiniz.";
+
+    }
+
+}
 
 
     else if(command === "Ürün açıklaması yaz"){
