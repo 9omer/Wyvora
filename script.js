@@ -452,8 +452,10 @@ let qrLink = document.getElementById("qrLink");
 
 if(qrLink){
 
-    qrLink.innerHTML = window.location.origin + "/store.html";
-    
+    qrLink.innerHTML =
+window.location.origin +
+"/store.html?code=" +
+businessCode;
     }
 let qrImage = document.getElementById("qrImage");
 
