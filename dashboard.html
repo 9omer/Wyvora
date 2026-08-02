@@ -2,154 +2,147 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Wyvora Admin Paneli</title>
+
+<link rel="stylesheet" href="style.css">
+
+<title>Wyvora Dashboard</title>
+
 </head>
+
 
 <body>
 
-<nav>
-    <h2>Wyvora Admin</h2>
 
-    <div>
-        <a href="index.html">Site</a>
-        <a href="admin.html">Çıkış</a>
-    </div>
+<nav>
+
+<h2>Wyvora Dashboard</h2>
+
+<div>
+
+<a href="ai.html">AI</a>
+
+<a href="menu.html">Menü</a>
+
+<a href="admin.html">Çıkış</a>
+
+</div>
+
 </nav>
+
 
 
 <header>
 
-    <div>
-        <h1>Kontrol Paneli</h1>
-        <p>Wyvora AI Yönetim Sistemi</p>
-    </div>
+<h1>📊 İşletme Paneli</h1>
 
-    <div>
-        <button>Bildirimler</button>
-        <button>Profil</button>
-    </div>
+<p>
+Wyvora AI işletmenizi analiz ediyor.
+</p>
 
 </header>
 
 
+
 <section>
 
-    <div>
-        <h3>🤖 AI Asistan</h3>
-        <p>İşletmeniz için öneriler alın ve görevler oluşturun.</p>
-        <button onclick="window.location.href='ai.html'">Aç</button>
-    </div>
 
-    <div>
-        <h3>🍽 Menü Yönetimi</h3>
-        <p>Ürünlerinizi ve kategorilerinizi yönetin.</p>
-        <button onclick="window.location.href='menu.html'">Yönet</button>
-    </div>
+<div>
 
-    <div>
-        <h3>🏢 İşletme Bilgileri</h3>
-        <p>Adres, telefon ve çalışma saatlerini güncelleyin.</p>
-        <button>Düzenle</button>
-    </div>
+<h3>🍽 Menü Ürünleri</h3>
 
-    <div>
-        <h3>⭐ Yorum Analizi</h3>
-        <p>Müşteri yorumlarını analiz edin.</p>
-        <button>Görüntüle</button>
-    </div>
+<h2 id="productCount">
+0
+</h2>
+
+</div>
+
+
+
+<div>
+
+<h3>⭐ Ortalama Puan</h3>
+
+<h2>
+4.8
+</h2>
+
+</div>
+
+
+
+<div>
+
+<h3>📅 Rezervasyon</h3>
+
+<h2>
+18
+</h2>
+
+</div>
+
+
+
+<div>
+
+<h3>🤖 AI Önerileri</h3>
+
+<h2>
+7
+</h2>
+
+</div>
+
 
 </section>
+
+
+
+
 <section>
 
-    <div>
-        <h3>👥 Toplam Müşteri</h3>
-        <h2>1.284</h2>
-    </div>
 
-    <div>
-        <h3>⭐ Ortalama Puan</h3>
-        <h2>4.8</h2>
-    </div>
+<h2>🤖 Wyvora AI Önerileri</h2>
 
-    <div>
-        <h3>📅 Bugünkü Rezervasyon</h3>
-        <h2>18</h2>
-    </div>
 
-    <div>
-        <h3>🤖 AI Görevleri</h3>
-        <h2>7</h2>
-    </div>
+<div class="ai-message">
 
-</section>
-<section>
+<p>
+Yeni kampanya oluşturmayı düşünebilirsiniz.
+</p>
 
-    <h2>🤖 Wyvora AI Önerileri</h2>
+</div>
 
-    <div>
-        <p>• Bu hafta öğle menüsünde indirim kampanyası oluşturabilirsiniz.</p>
-    </div>
 
-    <div>
-        <p>• Son 30 günde en çok satılan ürün: Tavuk Burger.</p>
-    </div>
+<div class="ai-message">
 
-    <div>
-        <p>• Müşterileriniz tatlı kategorisine daha fazla ilgi gösteriyor.</p>
-    </div>
+<p>
+En çok satan ürünlerinizi öne çıkarın.
+</p>
+
+</div>
+
 
 </section>
-<section>
 
-    <h2>⚡ Hızlı İşlemler</h2>
 
-    <div>
-        <button>➕ Yeni Ürün Ekle</button>
-        <button>✏️ Menü Düzenle</button>
-        <button>🤖 AI ile Kampanya Oluştur</button>
-        <button>📷 Fotoğraf Yükle</button>
-    </div>
 
-</section>
-<section>
-
-    <h2>📢 Son Bildirimler</h2>
-
-    <div>
-        <p>✅ Yeni bir rezervasyon oluşturuldu.</p>
-    </div>
-
-    <div>
-        <p>⭐ Yeni bir 5 yıldızlı yorum geldi.</p>
-    </div>
-
-    <div>
-        <p>🤖 AI bu hafta için yeni bir kampanya önerdi.</p>
-    </div>
-
-</section>
-<section>
-
-    <h2>📈 Son 7 Gün Analizi</h2>
-
-    <div>
-        <h3>Toplam Sipariş</h3>
-        <h2>247</h2>
-    </div>
-
-    <div>
-        <h3>Yeni Müşteri</h3>
-        <h2>39</h2>
-    </div>
-
-    <div>
-        <h3>Toplam Gelir</h3>
-        <h2>₺48.750</h2>
-    </div>
-
-</section>
 <script src="script.js"></script>
+
+
+<script>
+
+let products =
+JSON.parse(localStorage.getItem("products")) || [];
+
+
+document.getElementById("productCount").innerHTML =
+products.length;
+
+
+</script>
+
+
+
 </body>
 
 </html>
