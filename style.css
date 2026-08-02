@@ -36,3 +36,32 @@ nav a {
     text-decoration: none;
     color: #222;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+}
+
+nav h2 {
+    font-size: 24px;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #222;
+}
+
+section {
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+section div {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+}
