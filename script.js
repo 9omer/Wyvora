@@ -11,6 +11,49 @@ document.addEventListener("DOMContentLoaded", function () {
     loadReservations();
 generateAIRecommendations();
 loadStore();
+function loadStoreMenu(){
+
+    let menu =
+    document.getElementById("storeMenu");
+
+
+    if(!menu) return;
+
+
+    let products =
+    JSON.parse(localStorage.getItem("products")) || [];
+
+
+    menu.innerHTML = "";
+
+
+    products.forEach(function(product){
+
+
+        menu.innerHTML += `
+
+        <div class="ai-message">
+
+        <h3>${product.name}</h3>
+
+        <p>₺${product.price}</p>
+
+
+        ${product.image ?
+        "<img src='"+product.image+"' width='200'>"
+        :
+        ""}
+
+
+        </div>
+
+        `;
+
+
+    });
+
+
+}
 });
 
 
