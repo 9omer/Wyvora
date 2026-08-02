@@ -100,3 +100,44 @@ function aiCommand(command) {
 
 
 }
+function addProduct() {
+
+    let name = document.getElementById("productName").value;
+
+    let price = document.getElementById("productPrice").value;
+
+
+    if (name === "" || price === "") {
+
+        alert("Lütfen ürün adı ve fiyat girin.");
+
+        return;
+
+    }
+
+
+    let menuList = document.getElementById("menuList");
+
+
+    let product = document.createElement("div");
+
+
+    product.className = "ai-message";
+
+
+    product.innerHTML = 
+    name + 
+    "<br>₺" + price +
+    "<br><button onclick='this.parentElement.remove()'>Sil</button>";
+
+
+    menuList.appendChild(product);
+
+
+
+    document.getElementById("productName").value = "";
+
+    document.getElementById("productPrice").value = "";
+
+
+}
