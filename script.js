@@ -116,10 +116,10 @@ function aiCommand(command) {
 
     else if(command === "Google yorumlarını analiz et"){
 
-        message =
-        "Google yorumlarını inceleyerek müşteri memnuniyeti ve geliştirme alanlarını bulabilirsiniz.";
+    message =
+    "Google yorum analizi sonucu: Müşterilerinizin memnun olduğu noktaları öne çıkarın. Olumsuz geri bildirimlerde ise hizmet hızını, ürün kalitesini ve müşteri deneyimini geliştirmeyi düşünebilirsiniz.";
 
-    }
+}
 
 
     response.innerHTML = `
