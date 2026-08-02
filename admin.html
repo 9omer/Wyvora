@@ -2,24 +2,70 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Wyvora Admin</title>
+
+<link rel="stylesheet" href="style.css">
+
+<title>Wyvora Giriş</title>
+
 </head>
+
 
 <body>
 
+
+<header>
+
+<h1>🔐 Wyvora Admin Giriş</h1>
+
+<p>
+İşletme yönetim paneline giriş yapın.
+</p>
+
+</header>
+
+
+
 <section>
-    <h1>Admin Girişi</h1>
 
-    <form>
-        <input type="text" placeholder="Kullanıcı Adı">
 
-        <input type="password" placeholder="Şifre">
+<div class="ai-message">
 
-        <button type="submit">Giriş Yap</button>
-    </form>
+
+<input 
+id="username" 
+placeholder="Kullanıcı adı">
+
+
+<br><br>
+
+
+<input 
+id="password" 
+type="password"
+placeholder="Şifre">
+
+
+<br><br>
+
+
+<button onclick="login()">
+Giriş Yap
+</button>
+
+
+<p id="loginMessage"></p>
+
+
+</div>
+
+
 </section>
+
+
+
 <script src="script.js"></script>
+
+
 </body>
 
 </html>
