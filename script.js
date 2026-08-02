@@ -1,3 +1,5 @@
+const WYVORA_AI = true;
+
 document.addEventListener("DOMContentLoaded", function () {
 
     console.log("Wyvora başlatıldı.");
