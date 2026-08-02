@@ -682,7 +682,7 @@ function addReservation(){
     document.getElementById("customerDate").value="";
 
     document.getElementById("customerCount").value="";
-
+alert("Rezervasyonunuz alındı. Teşekkür ederiz.");
 }
 
 
