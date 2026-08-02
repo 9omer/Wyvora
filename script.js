@@ -19,3 +19,11 @@ function aiMessage() {
     }
 
 }
+function aiCommand(command) {
+
+    let response = document.getElementById("aiResponse");
+
+    response.innerHTML = 
+    "<p><strong>Wyvora AI:</strong> " + command + " isteğiniz alındı. Analiz hazırlanıyor.</p>";
+
+}
