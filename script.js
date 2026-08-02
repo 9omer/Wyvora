@@ -472,7 +472,7 @@ if(codeBox){
     codeBox.innerHTML = "İşletme Kodunuz: " + businessCode;
 
 }
-
+}
 
 document.addEventListener("DOMContentLoaded", function(){
 
