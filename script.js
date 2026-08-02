@@ -449,6 +449,14 @@ let qrLink = document.getElementById("qrLink");
 if(qrLink){
 
     qrLink.innerHTML = window.location.origin + "/store.html";
+let qrImage = document.getElementById("qrImage");
+
+if(qrImage){
+
+    qrImage.src = 
+    "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" 
+    + window.location.origin + "/store.html";
+
 
 }
 
