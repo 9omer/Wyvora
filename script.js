@@ -444,6 +444,11 @@ function saveBusiness(){
 
     document.getElementById("saveMessage").innerHTML =
     "İşletme bilgileri kaydedildi.";
+let qrLink = document.getElementById("qrLink");
+
+if(qrLink){
+
+    qrLink.innerHTML = window.location.origin + "/store.html";
 
 }
 
