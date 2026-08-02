@@ -496,7 +496,12 @@ document.addEventListener("DOMContentLoaded", function(){
             document.getElementById("hours").value = data.hours;
 
             document.getElementById("description").value = data.description;
+if(document.getElementById("businessCode")){
 
+    document.getElementById("businessCode").innerHTML =
+    "İşletme Kodunuz: " + (data.code || "");
+
+}
         }
 
 
