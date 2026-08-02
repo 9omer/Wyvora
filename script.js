@@ -37,7 +37,7 @@ function aiMessage() {
 
 
     response.innerHTML =
-    "<p><strong>Wyvora AI:</strong> İşletmeniz için analiz hazırlanıyor.</p>";
+"<p><strong>Wyvora AI:</strong> " + generateAIResponse(message) + "</p>";
 
     input.value = "";
 
