@@ -376,6 +376,7 @@ function logout(){
 function saveBusiness(){
 
     let business = {
+        logo: document.getElementById("logo").value,
 
         name: document.getElementById("businessName").value,
 
