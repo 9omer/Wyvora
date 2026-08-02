@@ -900,7 +900,7 @@ if(message.includes("işletme") || message.includes("firma") || message.includes
 function loadStore(){
 
     let business =
-    JSON.parse(localStorage.getItem("business")) || {};
+    JSON.parse(localStorage.getItem("businesses")) || {};
 
     let name = document.getElementById("storeName");
     let title = document.getElementById("pageTitle");
