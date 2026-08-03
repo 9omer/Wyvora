@@ -227,34 +227,50 @@ document.getElementById("dashboardHours").innerHTML =
 
 <script src="script.js"></script>
 
+
+
 <script>
 
-let businessCode =
+let dashboardCode =
 localStorage.getItem("activeBusinessCode");
 
 
-let businesses =
+let dashboardBusinesses =
 JSON.parse(localStorage.getItem("businesses")) || [];
 
 
-let business =
-businesses.find(function(item){
+let dashboardBusiness =
+dashboardBusinesses.find(function(item){
 
-    return item.code === businessCode;
+    return item.code === dashboardCode;
 
 });
 
 
-if(business){
+if(dashboardBusiness){
 
     document.getElementById("dashboardTitle").innerHTML =
-    "📊 " + business.name + " Paneli";
+    "📊 " + dashboardBusiness.name + " Paneli";
+
+
+    document.getElementById("dashboardBusinessName").innerHTML =
+    "🏢 " + (dashboardBusiness.name || "");
+
+
+    document.getElementById("dashboardPhone").innerHTML =
+    "📞 " + (dashboardBusiness.phone || "");
+
+
+    document.getElementById("dashboardAddress").innerHTML =
+    "📍 " + (dashboardBusiness.address || "");
+
+
+    document.getElementById("dashboardHours").innerHTML =
+    "🕒 " + (dashboardBusiness.hours || "");
 
 }
 
 </script>
-
-
 
 
 
