@@ -877,8 +877,15 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
     JSON.parse(localStorage.getItem("reservations")) || [];
 
 
-    let business =
-    JSON.parse(localStorage.getItem("businesses")) || {};
+    let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
+
+let business =
+businesses.find(function(item){
+
+    return item.code === businessCode;
+
+}) || {};
 
 if(message.includes("kaç ürün") || message.includes("ürün sayısı") || message.includes("menümde kaç") ){
 
