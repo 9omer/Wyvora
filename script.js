@@ -22,8 +22,11 @@ function loadStoreMenu(){
     if(!menu) return;
 
 
-    let products =
-    JSON.parse(localStorage.getItem("products")) || [];
+    let businessCode =
+localStorage.getItem("activeBusinessCode");
+
+let products =
+JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 
     menu.innerHTML = "";
