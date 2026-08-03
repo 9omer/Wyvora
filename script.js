@@ -619,9 +619,14 @@ function loadPhotos(){
     gallery.innerHTML="";
 
 
-    let photos =
-    JSON.parse(localStorage.getItem("photos")) || [];
+    let businessCode =
+    localStorage.getItem("activeBusinessCode");
 
+
+    let photos =
+    JSON.parse(
+        localStorage.getItem("gallery_" + businessCode)
+    ) || [];
 
 
     photos.forEach(function(photo,index){
