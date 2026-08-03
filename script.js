@@ -532,7 +532,9 @@ password: document.getElementById("businessPassword").value,
 
         address: document.getElementById("address").value,
 
-        hours: document.getElementById("hours").value,
+mapLink: document.getElementById("mapLink").value,
+
+hours: document.getElementById("hours").value,
 
         description: document.getElementById("description").value
 
