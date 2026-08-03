@@ -398,7 +398,7 @@ function login(){
 
 
         localStorage.setItem("loggedIn","true");
-
+localStorage.setItem("activeBusinessCode","wyvora-demo");
 
         message.innerHTML =
         "Giriş başarılı. Dashboard açılıyor...";
