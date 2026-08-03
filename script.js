@@ -398,7 +398,17 @@ function login(){
 
 
         localStorage.setItem("loggedIn","true");
-localStorage.setItem("activeBusinessCode","wyvora-demo");
+let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
+
+if(businesses.length > 0){
+
+    localStorage.setItem(
+        "activeBusinessCode",
+        businesses[0].code
+    );
+
+}
 
         message.innerHTML =
         "Giriş başarılı. Dashboard açılıyor...";
