@@ -692,8 +692,9 @@ function addReservation(){
     }
 
 
-    let businessCode =
-localStorage.getItem("activeBusinessCode");
+    const params = new URLSearchParams(window.location.search);
+
+let businessCode = params.get("code");
 
 let reservations =
 JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
