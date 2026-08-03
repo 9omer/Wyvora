@@ -707,9 +707,9 @@ JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
 
     localStorage.setItem(
-        "reservations",
-        JSON.stringify(reservations)
-    );
+    "reservations_" + businessCode,
+    JSON.stringify(reservations)
+);
 
 
     loadReservations();
