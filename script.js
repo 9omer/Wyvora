@@ -796,18 +796,23 @@ JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 }
 
 
-
 function deleteReservation(index){
 
+    let businessCode =
+    localStorage.getItem("activeBusinessCode");
+
+
     let reservations =
-    JSON.parse(localStorage.getItem("reservations")) || [];
+    JSON.parse(
+        localStorage.getItem("reservations_" + businessCode)
+    ) || [];
 
 
     reservations.splice(index,1);
 
 
     localStorage.setItem(
-        "reservations",
+        "reservations_" + businessCode,
         JSON.stringify(reservations)
     );
 
@@ -815,6 +820,7 @@ function deleteReservation(index){
     loadReservations();
 
 }
+
 function generateAIRecommendations(){
 
     let box = document.getElementById("aiSuggestions");
