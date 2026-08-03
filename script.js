@@ -616,6 +616,13 @@ if(data){
             document.getElementById("phone").value = data.phone;
 
             document.getElementById("address").value = data.address;
+            
+            if(document.getElementById("mapLink")){
+
+    document.getElementById("mapLink").value =
+    data.mapLink || "";
+
+}
 
             document.getElementById("hours").value = data.hours;
 
