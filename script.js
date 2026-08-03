@@ -447,6 +447,9 @@ let businessCode =
     let business = {
         
         code: businessCode,
+        username: document.getElementById("businessUsername").value,
+
+password: document.getElementById("businessPassword").value,
         
         logo: document.getElementById("logo").value,
 
