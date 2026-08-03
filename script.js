@@ -737,9 +737,11 @@ function loadReservations(){
     list.innerHTML="";
 
 
-    let reservations =
-    JSON.parse(localStorage.getItem("reservations")) || [];
+    let businessCode =
+localStorage.getItem("activeBusinessCode");
 
+let reservations =
+JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
     reservations.forEach(function(reservation,index){
 
