@@ -443,7 +443,7 @@ let businesses =
 JSON.parse(localStorage.getItem("businesses")) || [];
 
 
-let business = businesses[0] || {};
+
 
 
 businesses.push(business);
