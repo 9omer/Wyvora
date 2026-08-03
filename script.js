@@ -33,7 +33,13 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
     menu.innerHTML = "";
 
 
-    products.forEach(function(product){
+    products
+.filter(function(product){
+
+    return product.active !== false;
+
+})
+.forEach(function(product){
 
 
         menu.innerHTML += `
