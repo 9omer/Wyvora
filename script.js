@@ -479,6 +479,11 @@ JSON.parse(localStorage.getItem("businesses")) || [];
 businesses.push(business);
 
 
+let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
+
+businesses.push(business);
+
 localStorage.setItem(
     "businesses",
     JSON.stringify(businesses)
