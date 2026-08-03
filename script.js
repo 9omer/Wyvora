@@ -846,6 +846,7 @@ JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
         <p>Kişi: ${reservation.count}</p>
 
+<p>Durum: ${reservation.status || "Bekliyor"}</p>
 
         <button onclick="deleteReservation(${index})">
         Sil
