@@ -22,8 +22,9 @@ function loadStoreMenu(){
     if(!menu) return;
 
 
-    let businessCode =
-localStorage.getItem("activeBusinessCode");
+    const params = new URLSearchParams(window.location.search);
+
+let businessCode = params.get("code");
 
 let products =
 JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
