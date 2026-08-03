@@ -228,7 +228,52 @@ document.getElementById("dashboardHours").innerHTML =
 
 
 }
+<script>
 
+let dashCode =
+localStorage.getItem("activeBusinessCode");
+
+
+let dashReservations =
+JSON.parse(
+localStorage.getItem("reservations_" + dashCode)
+) || [];
+
+
+let reservationBox =
+document.getElementById("dashboardReservations");
+
+
+if(reservationBox){
+
+
+reservationBox.innerHTML = "";
+
+
+dashReservations.slice(-5).forEach(function(reservation){
+
+
+reservationBox.innerHTML += `
+
+<div class="ai-message">
+
+<h3>${reservation.name}</h3>
+
+<p>📅 Tarih: ${reservation.date}</p>
+
+<p>👥 Kişi: ${reservation.count}</p>
+
+</div>
+
+`;
+
+});
+
+
+}
+
+
+</script>
 </script>
 
 
