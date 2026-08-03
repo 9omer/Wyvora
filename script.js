@@ -195,11 +195,20 @@ function aiCommand(command) {
 
 function addProduct(){
 
-    let name = document.getElementById("productName").value;
+    let name =
+    document.getElementById("productName").value;
 
-    let price = document.getElementById("productPrice").value;
 
-    let image = document.getElementById("productImage").value;
+    let category =
+    document.getElementById("productCategory").value;
+
+
+    let price =
+    document.getElementById("productPrice").value;
+
+
+    let image =
+    document.getElementById("productImage").value;
 
 
 
@@ -214,10 +223,13 @@ function addProduct(){
 
 
     let businessCode =
-localStorage.getItem("activeBusinessCode");
+    localStorage.getItem("activeBusinessCode");
 
-let products =
-JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
+
+    let products =
+    JSON.parse(
+        localStorage.getItem("products_" + businessCode)
+    ) || [];
 
 
 
@@ -225,9 +237,13 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
         name:name,
 
+        category:category,
+
         price:price,
 
-        image:image
+        image:image,
+
+        active:true
 
     });
 
@@ -242,7 +258,10 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
     loadProducts();
 
 
+
     document.getElementById("productName").value="";
+
+    document.getElementById("productCategory").value="";
 
     document.getElementById("productPrice").value="";
 
