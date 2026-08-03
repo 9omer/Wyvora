@@ -469,14 +469,7 @@ password: document.getElementById("businessPassword").value,
 
     };
 
-let businesses =
-JSON.parse(localStorage.getItem("businesses")) || [];
 
-
-
-
-
-businesses.push(business);
 
 
 let businesses =
