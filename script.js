@@ -874,7 +874,7 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 
     let reservations =
-    JSON.parse(localStorage.getItem("reservations")) || [];
+JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
 
     let businesses =
