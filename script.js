@@ -912,8 +912,18 @@ if(message.includes("işletme") || message.includes("firma") || message.includes
 }
 function loadStore(){
 
-    let business =
-    JSON.parse(localStorage.getItem("businesses")) || {};
+    let businesses =
+    JSON.parse(localStorage.getItem("businesses")) || [];
+
+    const params = new URLSearchParams(window.location.search);
+
+    const code = params.get("code");
+
+    let business = businesses.find(function(item){
+
+        return item.code === code;
+
+    }) || {};
 
     let name = document.getElementById("storeName");
     let title = document.getElementById("pageTitle");
