@@ -275,7 +275,8 @@ function addProduct(){
 
 function loadProducts(){
 
-    let menuList = document.getElementById("menuList");
+    let menuList =
+    document.getElementById("menuList");
 
 
     if(!menuList) return;
@@ -284,12 +285,14 @@ function loadProducts(){
     menuList.innerHTML="";
 
 
-
     let businessCode =
-localStorage.getItem("activeBusinessCode");
+    localStorage.getItem("activeBusinessCode");
 
-let products =
-JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
+
+    let products =
+    JSON.parse(
+        localStorage.getItem("products_" + businessCode)
+    ) || [];
 
 
 
@@ -302,7 +305,6 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
         div.className="ai-message";
 
 
-
         div.innerHTML = `
 
         ${product.image ? 
@@ -311,6 +313,8 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 
         <h3>${product.name}</h3>
+
+        <p>Kategori: ${product.category || "Belirtilmemiş"}</p>
 
         <p>₺${product.price}</p>
 
@@ -341,37 +345,70 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 function editProduct(index){
 
-
     let businessCode =
-localStorage.getItem("activeBusinessCode");
+    localStorage.getItem("activeBusinessCode");
 
-let products =
-JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
+    let products =
+    JSON.parse(
+        localStorage.getItem("products_" + businessCode)
+    ) || [];
+
+
+    let product = products[index];
 
 
     let newName =
-    prompt("Yeni ürün adı:", products[index].name);
+    prompt(
+        "Yeni ürün adı:",
+        product.name
+    );
 
+
+    let newCategory =
+    prompt(
+        "Yeni kategori:",
+        product.category || ""
+    );
 
 
     let newPrice =
-    prompt("Yeni fiyat:", products[index].price);
+    prompt(
+        "Yeni fiyat:",
+        product.price
+    );
+
+
+    let newImage =
+    prompt(
+        "Yeni fotoğraf linki:",
+        product.image || ""
+    );
 
 
 
     if(newName && newPrice){
 
 
-        products[index].name=newName;
+        products[index] = {
 
-        products[index].price=newPrice;
+            name:newName,
+
+            category:newCategory,
+
+            price:newPrice,
+
+            image:newImage,
+
+            active:true
+
+        };
 
 
-       localStorage.setItem(
-    "products_" + businessCode,
-    JSON.stringify(products)
-);
+        localStorage.setItem(
+            "products_" + businessCode,
+            JSON.stringify(products)
+        );
 
 
         loadProducts();
