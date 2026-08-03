@@ -262,8 +262,11 @@ function loadProducts(){
 
 
 
-    let products =
-    JSON.parse(localStorage.getItem("products")) || [];
+    let businessCode =
+JSON.parse(localStorage.getItem("businesses"))[0].code;
+
+let products =
+JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 
 
