@@ -1047,3 +1047,10 @@ JSON.parse(localStorage.getItem("photos_" + businessCode)) || [];
     });
 
 }
+function registerBusiness(event){
+
+    event.preventDefault();
+
+    alert("Kayıt sistemi çalışıyor.");
+
+}
