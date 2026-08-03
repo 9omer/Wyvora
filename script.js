@@ -394,7 +394,18 @@ function login(){
     let message = document.getElementById("loginMessage");
 
 
-    if(username === "admin" && password === "123456"){
+    let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
+
+let business =
+businesses.find(function(item){
+
+    return item.username === username &&
+           item.password === password;
+
+});
+
+if(business){
 
 
         localStorage.setItem("loggedIn","true");
