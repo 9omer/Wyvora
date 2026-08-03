@@ -1097,7 +1097,7 @@ let phone = document.getElementById("storePhone");
 let address = document.getElementById("storeAddress");
 
 let hours = document.getElementById("storeHours");
-
+let mapButton = document.getElementById("mapButton");
     if(name){
 
         name.innerHTML = business.name || "İşletme Adı";
