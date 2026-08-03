@@ -1003,8 +1003,11 @@ function loadStoreGallery(){
     if(!gallery) return;
 
 
-    let photos =
-    JSON.parse(localStorage.getItem("photos")) || [];
+    let businessCode =
+localStorage.getItem("activeBusinessCode");
+
+let photos =
+JSON.parse(localStorage.getItem("photos_" + businessCode)) || [];
 
 
     gallery.innerHTML = "";
