@@ -1080,7 +1080,14 @@ function loadStore(){
     let name = document.getElementById("storeName");
     let title = document.getElementById("pageTitle");
     let description = document.getElementById("storeDescription");
+
 let logo = document.getElementById("storeLogo");
+
+let phone = document.getElementById("storePhone");
+
+let address = document.getElementById("storeAddress");
+
+let hours = document.getElementById("storeHours");
 
     if(name){
 
@@ -1094,7 +1101,28 @@ let logo = document.getElementById("storeLogo");
         description.innerHTML = business.description || "";
 
     }
-    
+    if(phone){
+
+    phone.innerHTML =
+    "📞 " + (business.phone || "");
+
+}
+
+
+if(address){
+
+    address.innerHTML =
+    "📍 " + (business.address || "");
+
+}
+
+
+if(hours){
+
+    hours.innerHTML =
+    "🕒 " + (business.hours || "");
+
+}
 if(logo){
 
     logo.src = business.logo || "";
