@@ -866,8 +866,11 @@ function analyzeReviews(){
 }
 function generateAIResponse(message){
 
-    let products =
-    JSON.parse(localStorage.getItem("products")) || [];
+    let businessCode =
+localStorage.getItem("activeBusinessCode");
+
+let products =
+JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 
     let reservations =
