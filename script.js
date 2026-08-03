@@ -778,16 +778,18 @@ JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
 
     reservations.push({
-        
-        businessCode: businessCode,
 
-        name:name,
+    businessCode: businessCode,
 
-        date:date,
+    name:name,
 
-        count:count
+    date:date,
 
-    });
+    count:count,
+
+    status:"Bekliyor"
+
+});
 
 
     localStorage.setItem(
