@@ -920,6 +920,24 @@ JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
 let message = "";
 
+if(products.length === 0){
+
+    message =
+    "Menünüzde henüz ürün yok. Daha fazla ürün ekleyerek müşterilerinize seçenek sunabilirsiniz.";
+
+}
+else if(reservations.length > 5){
+
+    message =
+    "Rezervasyon yoğunluğunuz arttı. Kampanya oluşturarak müşteri deneyimini geliştirebilirsiniz.";
+
+}
+else{
+
+    message =
+    "İşletmeniz aktif görünüyor. Menü, kampanya ve müşteri analizleri yapabilirsiniz.";
+
+}
 
 if(products.length < 5){
 
