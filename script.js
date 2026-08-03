@@ -576,17 +576,20 @@ function addPhoto(){
     }
 
 
-    let photos =
-    JSON.parse(localStorage.getItem("photos")) || [];
+    let businessCode =
+localStorage.getItem("activeBusinessCode");
+
+let photos =
+JSON.parse(localStorage.getItem("photos_" + businessCode)) || [];
 
 
     photos.push(url);
 
 
     localStorage.setItem(
-        "photos",
-        JSON.stringify(photos)
-    );
+    "photos_" + businessCode,
+    JSON.stringify(photos)
+);
 
 
     loadPhotos();
