@@ -377,7 +377,7 @@ JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 
     localStorage.setItem(
-        "products",
+        "products_" + businessCode
         JSON.stringify(products)
     );
 
