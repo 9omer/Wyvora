@@ -848,6 +848,10 @@ JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
 <p>Durum: ${reservation.status || "Bekliyor"}</p>
 
+<button onclick="changeReservationStatus(${index})">
+Durumu Değiştir
+</button>
+
         <button onclick="deleteReservation(${index})">
         Sil
         </button>
@@ -1165,5 +1169,52 @@ function toggleProduct(index){
 
 
     loadProducts();
+
+}
+function changeReservationStatus(index){
+
+    let businessCode =
+    localStorage.getItem("activeBusinessCode");
+
+
+    let reservations =
+    JSON.parse(
+        localStorage.getItem("reservations_" + businessCode)
+    ) || [];
+
+
+    let current =
+    reservations[index].status || "Bekliyor";
+
+
+    if(current === "Bekliyor"){
+
+        reservations[index].status =
+        "Onaylandı";
+
+    }
+
+    else if(current === "Onaylandı"){
+
+        reservations[index].status =
+        "İptal Edildi";
+
+    }
+
+    else{
+
+        reservations[index].status =
+        "Bekliyor";
+
+    }
+
+
+    localStorage.setItem(
+        "reservations_" + businessCode,
+        JSON.stringify(reservations)
+    );
+
+
+    loadReservations();
 
 }
