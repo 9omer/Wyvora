@@ -581,19 +581,22 @@ function addPhoto(){
 
 
     let businessCode =
-localStorage.getItem("activeBusinessCode");
+    localStorage.getItem("activeBusinessCode");
 
-let photos =
-JSON.parse(localStorage.getItem("photos_" + businessCode)) || [];
+
+    let photos =
+    JSON.parse(
+        localStorage.getItem("gallery_" + businessCode)
+    ) || [];
 
 
     photos.push(url);
 
 
     localStorage.setItem(
-    "photos_" + businessCode,
-    JSON.stringify(photos)
-);
+        "gallery_" + businessCode,
+        JSON.stringify(photos)
+    );
 
 
     loadPhotos();
@@ -602,7 +605,6 @@ JSON.parse(localStorage.getItem("photos_" + businessCode)) || [];
     document.getElementById("photoUrl").value="";
 
 }
-
 
 
 function loadPhotos(){
