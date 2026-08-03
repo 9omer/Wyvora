@@ -169,7 +169,32 @@ photos.length;
 
 <script src="script.js"></script>
 
+<script>
 
+let businessCode =
+localStorage.getItem("activeBusinessCode");
+
+
+let businesses =
+JSON.parse(localStorage.getItem("businesses")) || [];
+
+
+let business =
+businesses.find(function(item){
+
+    return item.code === businessCode;
+
+});
+
+
+if(business){
+
+    document.getElementById("dashboardTitle").innerHTML =
+    "📊 " + business.name + " Paneli";
+
+}
+
+</script>
 
 
 
