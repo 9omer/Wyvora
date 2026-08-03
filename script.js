@@ -210,7 +210,7 @@ function addProduct(){
 
 
     let businessCode =
-JSON.parse(localStorage.getItem("businesses"))[0].code;
+localStorage.getItem("activeBusinessCode");
 
 let products =
 JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
