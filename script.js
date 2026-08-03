@@ -1132,6 +1132,12 @@ if(hours){
     "🕒 " + (business.hours || "");
 
 }
+if(mapButton){
+
+    mapButton.href =
+    business.mapLink || "#";
+
+}
 if(logo){
 
     logo.src = business.logo || "";
