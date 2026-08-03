@@ -323,6 +323,9 @@ function loadProducts(){
         Düzenle
         </button>
 
+<button onclick="toggleProduct(${index})">
+${product.active === false ? "Aktif Yap" : "Pasif Yap"}
+</button>
 
         <button onclick="deleteProduct(${index})">
         Sil
@@ -1126,5 +1129,32 @@ function registerBusiness(event){
     event.preventDefault();
 
     alert("Kayıt sistemi çalışıyor.");
+
+}
+function toggleProduct(index){
+
+    let businessCode =
+    localStorage.getItem("activeBusinessCode");
+
+
+    let products =
+    JSON.parse(
+        localStorage.getItem("products_" + businessCode)
+    ) || [];
+
+
+    products[index].active =
+    products[index].active === false
+    ? true
+    : false;
+
+
+    localStorage.setItem(
+        "products_" + businessCode,
+        JSON.stringify(products)
+    );
+
+
+    loadProducts();
 
 }
