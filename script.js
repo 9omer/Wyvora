@@ -802,11 +802,14 @@ function generateAIRecommendations(){
 
     if(!box) return;
 
+let businessCode =
+localStorage.getItem("activeBusinessCode");
+
 let products =
-JSON.parse(localStorage.getItem("products")) || [];
+JSON.parse(localStorage.getItem("products_" + businessCode)) || [];
 
 let reservations =
-JSON.parse(localStorage.getItem("reservations")) || [];
+JSON.parse(localStorage.getItem("reservations_" + businessCode)) || [];
 
 
 let message = "";
