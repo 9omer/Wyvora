@@ -1018,8 +1018,9 @@ function loadStoreGallery(){
     if(!gallery) return;
 
 
-    let businessCode =
-localStorage.getItem("activeBusinessCode");
+    const params = new URLSearchParams(window.location.search);
+
+let businessCode = params.get("code");
 
 let photos =
 JSON.parse(localStorage.getItem("photos_" + businessCode)) || [];
