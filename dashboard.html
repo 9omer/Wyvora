@@ -127,14 +127,6 @@ if(localStorage.getItem("loggedIn") !== "true"){
     window.location.href="admin.html";
 
 }
-
-</script>
-<script src="script.js"></script>
-
-
-
-
-
 <script>
 
 let businessCode =
@@ -151,12 +143,6 @@ document.getElementById("productCount").innerHTML =
 products.length;
 
 
-</script>
-<script>
-
-let businessCode =
-localStorage.getItem("activeBusinessCode");
-
 
 let reservations =
 JSON.parse(
@@ -168,17 +154,10 @@ document.getElementById("reservationCount").innerHTML =
 reservations.length;
 
 
-</script>
-
-<script>
-
-let businessCode =
-localStorage.getItem("activeBusinessCode");
-
 
 let photos =
 JSON.parse(
-localStorage.getItem("gallery_" + businessCode)
+localStorage.getItem("photos_" + businessCode)
 ) || [];
 
 
@@ -187,6 +166,14 @@ photos.length;
 
 
 </script>
+</script>
+<script src="script.js"></script>
+
+
+
+
+
+
 
 </body>
 
