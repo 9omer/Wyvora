@@ -524,7 +524,13 @@ document.addEventListener("DOMContentLoaded", function(){
 JSON.parse(localStorage.getItem("businesses")) || [];
 
 
-let data = businesses[0];
+let activeCode = localStorage.getItem("activeBusinessCode");
+
+let data = businesses.find(function(item){
+
+    return item.code === activeCode;
+
+});
 
 
 if(data){
