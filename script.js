@@ -409,17 +409,10 @@ if(business){
 
 
         localStorage.setItem("loggedIn","true");
-let businesses =
-JSON.parse(localStorage.getItem("businesses")) || [];
-
-if(businesses.length > 0){
-
-    localStorage.setItem(
-        "activeBusinessCode",
-        businesses[0].code
-    );
-
-}
+localStorage.setItem(
+    "activeBusinessCode",
+    business.code
+);
 
         message.innerHTML =
         "Giriş başarılı. Dashboard açılıyor...";
