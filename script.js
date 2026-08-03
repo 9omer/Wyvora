@@ -663,16 +663,21 @@ function loadPhotos(){
 
 function deletePhoto(index){
 
+    let businessCode =
+    localStorage.getItem("activeBusinessCode");
+
 
     let photos =
-    JSON.parse(localStorage.getItem("photos")) || [];
+    JSON.parse(
+        localStorage.getItem("gallery_" + businessCode)
+    ) || [];
 
 
     photos.splice(index,1);
 
 
     localStorage.setItem(
-        "photos",
+        "gallery_" + businessCode,
         JSON.stringify(photos)
     );
 
